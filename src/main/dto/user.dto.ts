@@ -8,3 +8,7 @@ export class UserDto {
   @Expose()
   password: string;
 }
+
+export class AuthDto {
+  token?: string;
+}
