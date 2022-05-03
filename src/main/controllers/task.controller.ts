@@ -17,7 +17,7 @@ import { TaskDto } from 'main/dto';
 import { TaskService } from 'main/services';
 
 @UseInterceptors(ClassSerializerInterceptor)
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 @Controller('tasks')
 export class TaskController {
   constructor(private readonly taskService: TaskService) {}

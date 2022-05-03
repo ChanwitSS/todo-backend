@@ -13,8 +13,8 @@ export class Task {
 
   @Column({ name: 'name' })
   name: string;
-  @Column({ name: 'detail' })
-  detail: number;
+  @Column({ name: 'detail', nullable: true })
+  detail: string;
   
   @Column({ name: 'start_date', nullable: true })
   startDate: Date;
