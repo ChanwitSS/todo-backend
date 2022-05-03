@@ -1,17 +1,12 @@
-import { Exclude } from 'class-transformer';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
-  JoinColumn,
-  AfterLoad,
-  ManyToOne,
 } from 'typeorm';
 
-@Entity('users')
+@Entity('tasks')
 export class Task {
   @PrimaryGeneratedColumn()
   id: number;

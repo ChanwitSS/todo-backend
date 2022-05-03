@@ -23,7 +23,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('')
-  async find(@Query() query: UserQueryInput) {
+  async find(@Query() query: any) {
     return await this.userService.find(query);
   }
 
