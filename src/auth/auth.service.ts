@@ -22,7 +22,7 @@ export class AuthService {
   async login(input: any): Promise<AuthDto> {
     const user = await this.userRepository.findOne(
       {
-        email: input.email,
+        username: input.username,
       },
       {
         select: ['id', 'username', 'password', 'email'],
@@ -32,7 +32,7 @@ export class AuthService {
     if (!isPasswordMatched(user, input.password)) {
       throw new UnauthorizedException({
         error: 'invalid_credentials',
-        message: 'Wrong email or password',
+        message: 'Wrong username or password',
       });
     }
 

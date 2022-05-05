@@ -12,10 +12,23 @@ export class TaskService {
   ) {}
 
   async find(where: object): Promise<Task[]> {
-    // const take = query?.take || 10;
-    // const page = query?.page || 1;
-    // const skip = (page - 1) * take;
     return await this.taskRepository.find(where);
+  }
+
+  async findIncoming() {
+    return await this.taskRepository
+      .createQueryBuilder('task')
+      .where('task.endDate >= :now', { now: new Date() })
+      .orderBy('task.startDate', 'ASC')
+      .getMany();
+  }
+
+  async findFinished() {
+    return await this.taskRepository
+      .createQueryBuilder('task')
+      .where('task.endDate < :now', { now: new Date() })
+      .orderBy('task.endDate', 'DESC')
+      .getMany();
   }
 
   async findOne(where: object): Promise<Task> {

@@ -27,6 +27,16 @@ export class TaskController {
     return await this.taskService.find(query);
   }
 
+  @Get('/incoming')
+  async findIncoming(@Query() query: any) {
+    return await this.taskService.findIncoming();
+  }
+
+  @Get('/finished')
+  async findFinished(@Query() query: any) {
+    return await this.taskService.findFinished();
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Task> {
     return await this.taskService.findOne({ id: +id });
